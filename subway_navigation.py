@@ -1,5 +1,4 @@
 import copy
-import sys
 
 class Matrix:
     def __init__(self, data=None, dim=None, init_value=0):
