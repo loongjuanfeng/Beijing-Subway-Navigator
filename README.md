@@ -42,7 +42,9 @@ See [I18N_USAGE.md](./I18N_USAGE.md) for adding new languages.
 
 ## ⚠️ Limitations
 
-**No Transfer Time:** Treats transfers as zero-cost. Routes may recommend transfers at complex hubs (西直门, 东直门) despite 8+ minute walks. Hell station warnings are the only mitigation.
+**Historical Limitation (Now Resolved):** Earlier versions treated transfers as zero-cost, which could recommend transfers at complex hubs (西直门, 东直门) despite 8+ minute walks. Hell station warnings were the only mitigation.
+
+**Current Implementation:** Transfer times from `interchange_stations.json` are now integrated into route calculations. Dijkstra's algorithm with line state tracking applies transfer penalties when switching lines, providing more accurate travel time estimates. Asymmetric transfer times (e.g., 复兴门: 2号线→1号线=0.42min vs 1号线→2号线=2.5min) are fully supported.
 
 ## 🛠 Technical Stack
 
@@ -145,7 +147,7 @@ Beijing-Subway-Navigator/
 ├── babel.cfg               # i18n extraction config
 ├── data/                   # Subway network data
 │   ├── subway_lines.json           # 26 lines + segments
-│   └── interchange_stations.json   # Transfer data (unused)
+│   └── interchange_stations.json   # Transfer time data (integrated into routing)
 ├── locale/                 # Translations (en/zh)
 │   └── messages.pot
 └── tests/                  # Test suite (99.55% coverage)

@@ -64,6 +64,19 @@ class Graph:
             current = parent[current]
         return path[::-1]
 
+    def _reconstruct_path_with_state(
+        self,
+        parent: dict[tuple[int, str | None], tuple[int, str | None] | None],
+        end: tuple[int, str | None],
+    ) -> list[int]:
+        path = []
+        current = end
+        while current is not None:
+            station, line = current
+            path.append(station)
+            current = parent[current]
+        return path[::-1]
+
     def find_shortest_path_cpx(self, start: int, end: int) -> list[int] | None:
         if start == end:
             return [start]
@@ -157,6 +170,70 @@ class Graph:
         if end not in parent:
             return None, float("inf")
         return self._reconstruct_path(parent, end), distances[end]
+
+    def find_shortest_path_weight_with_transfers(
+        self,
+        start: int,
+        end: int,
+        edge_to_line: dict[tuple[int, int], str],
+        station_to_lines: dict[int, set[str]],
+        transfer_time: dict[str, dict[tuple[str, str], float]],
+        idx_to_name: dict[int, str],
+    ) -> tuple[list[int], float]:
+        vertices_count = len(self.data)
+
+        distances: dict[tuple[int, str | None], float] = {(start, None): 0.0}
+        parent: dict[tuple[int, str | None], tuple[int, str | None] | None] = {(start, None): None}
+        visited: set[tuple[int, str | None]] = set()
+
+        import heapq
+
+        heap = [(0.0, start, None)]
+
+        while heap:
+            curr_time, curr_station, curr_line = heapq.heappop(heap)
+
+            state = (curr_station, curr_line)
+            if state in visited:
+                continue
+            visited.add(state)
+
+            if curr_station == end:
+                break
+
+            for neighbor in self.get_neighbors(curr_station):
+                edge_line = edge_to_line.get((curr_station, neighbor))
+                if edge_line is None:
+                    continue
+
+                edge_weight = self.data[curr_station][neighbor]
+                new_time = curr_time + edge_weight
+                new_line = edge_line
+
+                if curr_line is not None and curr_line != new_line:
+                    station_name = idx_to_name.get(curr_station, "")
+                    transfer_key = (curr_line, new_line)
+                    penalty = transfer_time.get(station_name, {}).get(transfer_key, 0.0)
+                    new_time += penalty
+
+                new_state = (neighbor, new_line)
+                if new_state not in distances or new_time < distances[new_state]:
+                    distances[new_state] = new_time
+                    parent[new_state] = state
+                    heapq.heappush(heap, (new_time, neighbor, new_line))
+
+        best_state = None
+        best_time = float("inf")
+        for (station, line), time in distances.items():
+            if station == end and time < best_time:
+                best_time = time
+                best_state = (station, line)
+
+        if best_state is None:
+            return [], float("inf")
+
+        path = self._reconstruct_path_with_state(parent, best_state)
+        return path, best_time
 
     def minimum_spanning_tree_prim(
         self, weights: list[list[float]]

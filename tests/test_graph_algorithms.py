@@ -164,3 +164,195 @@ class TestPathComparison:
         assert bfs_path == [0, 1, 3]
         assert dijkstra_path == [0, 1, 3]
         assert time == 2.0
+
+
+class TestTransferAwareRouting:
+    def test_transfer_aware_simple_path_with_no_transfer(self):
+        data = [
+            [0.0, 2.0, 0.0, 0.0],
+            [2.0, 0.0, 3.0, 0.0],
+            [0.0, 3.0, 0.0, 4.0],
+            [0.0, 0.0, 4.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L1",
+            (3, 2): "L1",
+        }
+        station_to_lines = {0: {"L1"}, 1: {"L1"}, 2: {"L1"}, 3: {"L1"}}
+        transfer_time = {}
+        idx_to_name = {0: "A", 1: "B", 2: "C", 3: "D"}
+
+        path, time = graph.find_shortest_path_weight_with_transfers(
+            0, 3, edge_to_line, station_to_lines, transfer_time, idx_to_name
+        )
+
+        assert path == [0, 1, 2, 3]
+        assert time == 9.0
+
+    def test_transfer_aware_with_single_transfer(self):
+        data = [
+            [0.0, 2.0, 0.0, 0.0],
+            [2.0, 0.0, 3.0, 0.0],
+            [0.0, 3.0, 0.0, 2.0],
+            [0.0, 0.0, 2.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L2",
+            (3, 2): "L2",
+        }
+        station_to_lines = {0: {"L1"}, 1: {"L1"}, 2: {"L1", "L2"}, 3: {"L2"}}
+        transfer_time = {"C": {("L1", "L2"): 5.0}}
+        idx_to_name = {0: "A", 1: "B", 2: "C", 3: "D"}
+
+        path, time = graph.find_shortest_path_weight_with_transfers(
+            0, 3, edge_to_line, station_to_lines, transfer_time, idx_to_name
+        )
+
+        assert path == [0, 1, 2, 3]
+        assert time == 12.0
+
+    def test_transfer_aware_asymmetric_transfer_times(self):
+        data = [
+            [0.0, 2.0, 0.0, 0.0],
+            [2.0, 0.0, 3.0, 0.0],
+            [0.0, 3.0, 0.0, 2.0],
+            [0.0, 0.0, 2.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L2",
+            (3, 2): "L2",
+        }
+        station_to_lines = {0: {"L1"}, 1: {"L1"}, 2: {"L1", "L2"}, 3: {"L2"}}
+        transfer_time = {"C": {("L1", "L2"): 5.0, ("L2", "L1"): 10.0}}
+        idx_to_name = {0: "A", 1: "B", 2: "C", 3: "D"}
+
+        path_forward, time_forward = graph.find_shortest_path_weight_with_transfers(
+            0, 3, edge_to_line, station_to_lines, transfer_time, idx_to_name
+        )
+
+        path_reverse, time_reverse = graph.find_shortest_path_weight_with_transfers(
+            3, 0, edge_to_line, station_to_lines, transfer_time, idx_to_name
+        )
+
+        assert path_forward == [0, 1, 2, 3]
+        assert path_reverse == [3, 2, 1, 0]
+        assert time_forward == 12.0
+        assert time_reverse == 17.0
+
+    def test_transfer_aware_multiple_transfers(self):
+        data = [
+            [0.0, 2.0, 0.0, 0.0, 0.0],
+            [2.0, 0.0, 3.0, 0.0, 0.0],
+            [0.0, 3.0, 0.0, 2.0, 0.0],
+            [0.0, 0.0, 2.0, 0.0, 3.0],
+            [0.0, 0.0, 0.0, 3.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L2",
+            (3, 2): "L2",
+            (3, 4): "L3",
+            (4, 3): "L3",
+        }
+        station_to_lines = {0: {"L1"}, 1: {"L1"}, 2: {"L1", "L2"}, 3: {"L2", "L3"}, 4: {"L3"}}
+        transfer_time = {"C": {("L1", "L2"): 5.0}, "D": {("L2", "L3"): 4.0}}
+        idx_to_name = {0: "A", 1: "B", 2: "C", 3: "D", 4: "E"}
+
+        path, time = graph.find_shortest_path_weight_with_transfers(
+            0, 4, edge_to_line, station_to_lines, transfer_time, idx_to_name
+        )
+
+        assert path == [0, 1, 2, 3, 4]
+        assert time == 19.0
+
+    def test_transfer_aware_no_transfer_penalty_when_same_line(self):
+        data = [
+            [0.0, 2.0, 0.0, 0.0],
+            [2.0, 0.0, 3.0, 0.0],
+            [0.0, 3.0, 0.0, 4.0],
+            [0.0, 0.0, 4.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L1",
+            (3, 2): "L1",
+        }
+        station_to_lines = {0: {"L1"}, 1: {"L1", "L2"}, 2: {"L1", "L2"}, 3: {"L1"}}
+        transfer_time = {"B": {("L1", "L2"): 5.0}, "C": {("L2", "L1"): 5.0}}
+        idx_to_name = {0: "A", 1: "B", 2: "C", 3: "D"}
+
+        path, time = graph.find_shortest_path_weight_with_transfers(
+            0, 3, edge_to_line, station_to_lines, transfer_time, idx_to_name
+        )
+
+        assert path == [0, 1, 2, 3]
+        assert time == 9.0
+
+    def test_transfer_aware_unreachable_path(self):
+        data = [
+            [0.0, 1.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+            [0.0, 0.0, 0.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {(0, 1): "L1", (1, 0): "L1", (2, 3): "L2", (3, 2): "L2"}
+        station_to_lines = {0: {"L1"}, 1: {"L1"}, 2: {"L2"}, 3: {"L2"}}
+        transfer_time = {}
+        idx_to_name = {0: "A", 1: "B", 2: "C", 3: "D"}
+
+        path, time = graph.find_shortest_path_weight_with_transfers(
+            0, 3, edge_to_line, station_to_lines, transfer_time, idx_to_name
+        )
+
+        assert path == []
+        assert time == float("inf")
+
+    def test_transfer_aware_same_start_end(self):
+        data = [
+            [0.0, 1.0, 0.0],
+            [1.0, 0.0, 1.0],
+            [0.0, 1.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {(0, 1): "L1", (1, 0): "L1", (1, 2): "L2", (2, 1): "L2"}
+        station_to_lines = {0: {"L1"}, 1: {"L1", "L2"}, 2: {"L2"}}
+        transfer_time = {}
+        idx_to_name = {0: "A", 1: "B", 2: "C"}
+
+        path, time = graph.find_shortest_path_weight_with_transfers(
+            1, 1, edge_to_line, station_to_lines, transfer_time, idx_to_name
+        )
+
+        assert path == [1]
+        assert time == 0.0

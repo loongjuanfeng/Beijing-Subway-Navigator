@@ -134,9 +134,39 @@ class BeijingSubwaySystem:
 
         self.hell_stations = {"西直门", "东直门", "国贸", "望京西", "平安里"}
 
+        # Transfer data structures
+        self.transfer_time = {}
+        self.edge_to_line = {}
+        self.station_to_lines = {}
+
         try:
             with open("data/subway_lines.json", "r", encoding="utf-8") as f:
                 subway_lines = json.load(f)
+
+            # Initialize station_to_lines
+            for line_name, line_data in subway_lines.items():
+                for station in line_data["stations"]:
+                    self.station_to_lines[station] = self.station_to_lines.get(station, set())
+                    self.station_to_lines[station].add(line_name)
+
+            with open("data/interchange_stations.json", "r", encoding="utf-8") as f:
+                interchange_data = json.load(f)
+
+            for record in interchange_data:
+                station = record["station"]
+                from_line = record["from_line"]
+                to_line = record["to_line"]
+                time = record["transfer_time_minutes"]
+
+                if station not in self.transfer_time:
+                    self.transfer_time[station] = {}
+
+                key = (from_line, to_line)
+                if (
+                    key not in self.transfer_time[station]
+                    or time < self.transfer_time[station][key]
+                ):
+                    self.transfer_time[station][key] = time
 
             for line_name, line_data in subway_lines.items():
                 segments = line_data["segments"]
@@ -146,7 +176,7 @@ class BeijingSubwaySystem:
                     t = segment["distance_minutes"]
                     self.stations.add(u)
                     self.stations.add(v)
-                    self.edges.append((u, v, t))
+                    self.edges.append((u, v, t, line_name))
 
         except FileNotFoundError as e:
             print(_("Error: Could not find data file - {e}").format(e=e))
@@ -163,11 +193,19 @@ class BeijingSubwaySystem:
         self.name_to_idx = {name: i for i, name in enumerate(self.sorted_stations)}
         self.idx_to_name = {i: name for i, name in enumerate(self.sorted_stations)}
 
+        self.station_to_lines_idx = {}
+        for station_name, lines in self.station_to_lines.items():
+            if station_name in self.name_to_idx:
+                idx = self.name_to_idx[station_name]
+                self.station_to_lines_idx[idx] = lines
+
         matrix_data = [[0] * self.n for _ in range(self.n)]
-        for u, v, t in self.edges:
+        for u, v, t, line_name in self.edges:
             ui, vi = self.name_to_idx[u], self.name_to_idx[v]
             matrix_data[ui][vi] = t
             matrix_data[vi][ui] = t
+            self.edge_to_line[(ui, vi)] = line_name
+            self.edge_to_line[(vi, ui)] = line_name
 
         self.graph = Graph(matrix_data)
         print(
@@ -243,11 +281,18 @@ class BeijingSubwaySystem:
 
                 if choice == "1":
                     print(
-                        _("\nCalculating fastest route from {start} to {end} (Dijkstra)...").format(
-                            start=start_name, end=end_name
-                        )
+                        _(
+                            "\nCalculating fastest route from {start} to {end} (Dijkstra with transfer times)..."
+                        ).format(start=start_name, end=end_name)
                     )
-                    path, time = self.graph.find_shortest_path_weight(s_id, e_id)
+                    path, time = self.graph.find_shortest_path_weight_with_transfers(
+                        s_id,
+                        e_id,
+                        self.edge_to_line,
+                        self.station_to_lines_idx,
+                        self.transfer_time,
+                        self.idx_to_name,
+                    )
                     if path:
                         print(_("Estimated Time: {time} minutes").format(time=time))
                         print(_("Route:"))
