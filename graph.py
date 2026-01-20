@@ -56,7 +56,7 @@ class Graph:
                         return False
         return True
 
-    def find_shortest_path_CPX(self, start: int, end: int) -> list[int] | None:
+    def find_shortest_path_cpx(self, start: int, end: int) -> list[int] | None:
         if start == end:
             return [start]
         adj_matrix = Matrix(copy.deepcopy(self.data))
@@ -74,7 +74,7 @@ class Graph:
             return None
         return ["Path exists (Computed via Matrix Power)"]  # type: ignore[return-value]
 
-    def find_shortest_path_BFS(self, start: int, end: int) -> list[int] | None:
+    def find_shortest_path_bfs(self, start: int, end: int) -> list[int] | None:
         vertices_count = len(self.data)
         queue = [start]
         mat = self.data
@@ -105,7 +105,7 @@ class Graph:
             index = memory[index]
         return path[::-1]
 
-    def find_path_DFS(self, start: int, end: int) -> list[int] | None:
+    def find_path_dfs(self, start: int, end: int) -> list[int] | None:
         vertices_count = len(self.data)
         stack = [start]
         mat = self.data
@@ -234,7 +234,7 @@ class Graph:
                 res.append(component)
         return res
 
-    def is_bipartite_BFS(self) -> bool:
+    def is_bipartite_bfs(self) -> bool:
         mat = self.data
         vertices_count = len(mat)
         color: dict[int, int] = {}

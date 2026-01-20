@@ -261,19 +261,19 @@ class BeijingSubwaySystem:
                             "\nCalculating route with fewest stops from {start} to {end} (BFS)..."
                         ).format(start=start_name, end=end_name)
                     )
-                    path = self.graph.find_shortest_path_BFS(s_id, e_id)
+                    path = self.graph.find_shortest_path_bfs(s_id, e_id)
                     if path:
                         print(_("Total Stops: {count} stations").format(count=len(path)))
                         self.print_path(path)
 
                 elif choice == "3":
                     print(_("\nSearching for a feasible path (DFS)..."))
-                    path = self.graph.find_path_DFS(s_id, e_id)
+                    path = self.graph.find_path_dfs(s_id, e_id)
                     self.print_path(path)
 
                 elif choice == "6":
                     print(_("\n[Experimental] Computing path via Matrix Multiplication (CPX)..."))
-                    res = self.graph.find_shortest_path_CPX(s_id, e_id)
+                    res = self.graph.find_shortest_path_cpx(s_id, e_id)
                     print(_("CPX Result: {result}").format(result=res))
 
             elif choice == "4":
@@ -316,7 +316,7 @@ class BeijingSubwaySystem:
                     print(_("Warning: Isolated station groups detected!"))
 
                 print(_("\nChecking Bipartite Property (BFS)..."))
-                is_bi = self.graph.is_bipartite_BFS()
+                is_bi = self.graph.is_bipartite_bfs()
                 print(_("Is Bipartite Graph: {is_bipartite}").format(is_bipartite=is_bi))
 
             elif choice == "8":
