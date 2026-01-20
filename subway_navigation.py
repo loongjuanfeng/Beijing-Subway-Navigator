@@ -208,11 +208,59 @@ class BeijingSubwaySystem:
             self.edge_to_line[(vi, ui)] = line_name
 
         self.graph = Graph(matrix_data)
+
+        self.heuristic_precompute: list[list[float]] | None = None
         print(
             _("Initialization Complete! Loaded {n} stations and {edges} track segments.").format(
                 n=self.n, edges=self.graph.count_edges() // 2
             )
         )
+
+    def _precompute_heuristic(self) -> list[list[float]]:
+        """
+        Precompute heuristic table using BFS hop distances × minimum edge weight.
+
+        For each station pair, computes h(start, end) = shortest_hop_distance(start, end) × min_edge_weight.
+        This provides an admissible and consistent heuristic for A* search.
+
+        Returns:
+            n×n matrix where heuristic_table[start][end] = heuristic estimate in minutes
+        """
+        import collections
+
+        n = self.n
+        # Find minimum edge weight in the graph
+        min_edge_weight = float("inf")
+        for i in range(n):
+            for j in range(n):
+                if 0 < self.graph.data[i][j] < min_edge_weight:
+                    min_edge_weight = self.graph.data[i][j]
+
+        # Default to 2.0 if no edges found (shouldn't happen with valid subway data)
+        if min_edge_weight == float("inf"):
+            min_edge_weight = 2.0
+
+        # Precompute BFS hop distances from each station
+        hop_distances = [[float("inf")] * n for _ in range(n)]
+
+        for start in range(n):
+            queue = collections.deque([(start, 0)])
+            visited = {start}
+            while queue:
+                node, dist = queue.popleft()
+                hop_distances[start][node] = dist
+                for neighbor in self.graph.get_neighbors(node):
+                    if neighbor not in visited:
+                        visited.add(neighbor)
+                        queue.append((neighbor, dist + 1))
+
+        # Convert to time heuristic (hop_distance × min_edge_weight)
+        heuristic_table = [
+            [dist * min_edge_weight if dist != float("inf") else float("inf") for dist in row]
+            for row in hop_distances
+        ]
+
+        return heuristic_table
 
     def get_station_id(self, name):
         return self.name_to_idx.get(name)
@@ -256,6 +304,7 @@ class BeijingSubwaySystem:
             print("6. [Matrix] " + _("Algebraic Connectivity Path (CPX Experiment)"))
             print("7. [Components] " + _("Check Network Connectivity"))
             print("8. [Simulation] " + _("Simulate Line Disruption (Remove Edge)"))
+            print("9. [A*] " + _("Fastest Route with Heuristic (Time Weighted)"))
             print("0. " + _("Exit"))
             print("=" * 50)
 
@@ -377,6 +426,46 @@ class BeijingSubwaySystem:
                     self.graph.remove_edge(u, v)
                     self.graph.remove_edge(v, u)
                     print(_("Line segment disrupted. Please replan route to see effects."))
+
+            elif choice == "9":
+                start_name = input(
+                    _("Enter start station (e.g., {example}): ").format(example=_("西直门"))
+                )
+                end_name = input(
+                    _("Enter end station (e.g., {example}): ").format(example=_("国贸"))
+                )
+
+                s_id = self.get_station_id(start_name)
+                e_id = self.get_station_id(end_name)
+
+                if s_id is None or e_id is None:
+                    print(_("Error: Station name does not exist. Please check your input."))
+                    continue
+
+                if self.heuristic_precompute is None:
+                    print(_("Precomputing A* heuristic table..."))
+                    self.heuristic_precompute = self._precompute_heuristic()
+
+                print(
+                    _(
+                        "\nCalculating fastest route from {start} to {end} (A* with heuristic)..."
+                    ).format(start=start_name, end=end_name)
+                )
+                path, time = self.graph.find_shortest_path_astar_with_transfers(
+                    s_id,
+                    e_id,
+                    self.edge_to_line,
+                    self.station_to_lines_idx,
+                    self.transfer_time,
+                    self.idx_to_name,
+                    self.heuristic_precompute,
+                )
+                if path:
+                    print(_("Estimated Time: {time} minutes").format(time=time))
+                    print(_("Route:"))
+                    self.print_path(path)
+                else:
+                    print(_("Destination unreachable."))
 
             else:
                 print(_("Invalid input."))

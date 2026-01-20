@@ -251,6 +251,68 @@ class Graph:
         path = self._reconstruct_path_with_state(parent, best_state)
         return path, best_time
 
+    def find_shortest_path_astar_with_transfers(
+        self,
+        start: int,
+        end: int,
+        edge_to_line: dict[tuple[int, int], str],
+        station_to_lines: dict[int, set[str]],
+        transfer_time: dict[str, dict[tuple[str, str], float]],
+        idx_to_name: dict[int, str],
+        heuristic_table: list[list[float]],
+    ) -> tuple[list[int], float]:
+        vertices_count = len(self.data)
+
+        g_score: dict[tuple[int, str | None], float] = {}
+        g_score[(start, None)] = 0.0
+        parent: dict[tuple[int, str | None], tuple[int, str | None] | None] = {}
+        parent[(start, None)] = None
+        visited: set[tuple[int, str | None]] = set()
+
+        import heapq
+
+        f_score: dict[tuple[int, str | None], float] = {}
+        f_score[(start, None)] = heuristic_table[start][end]
+        heap: list[tuple[float, int, str | None]] = [(f_score[(start, None)], start, None)]
+
+        while heap:
+            f_curr, curr_station, curr_line = heapq.heappop(heap)  # type: ignore[arg-type]
+
+            state = (curr_station, curr_line)
+            if state in visited:
+                continue
+            visited.add(state)
+
+            if curr_station == end:
+                actual_g_score = g_score[state]
+                path = self._reconstruct_path_with_state(parent, state)
+                return path, actual_g_score
+
+            for neighbor in self.get_neighbors(curr_station):
+                edge_line = edge_to_line.get((curr_station, neighbor))
+                if edge_line is None:
+                    continue
+
+                edge_weight = self.data[curr_station][neighbor]
+                new_g = g_score[state] + edge_weight
+                new_line = edge_line
+
+                if curr_line is not None and curr_line != new_line:
+                    station_name = idx_to_name.get(curr_station, "")
+                    transfer_key = (curr_line, new_line)
+                    penalty = transfer_time.get(station_name, {}).get(transfer_key, 0.0)
+                    new_g += penalty
+
+                new_state = (neighbor, new_line)
+                if new_state not in g_score or new_g < g_score[new_state]:
+                    parent[new_state] = state
+                    g_score[new_state] = new_g
+                    f_new = new_g + heuristic_table[neighbor][end]
+                    f_score[new_state] = f_new
+                    heapq.heappush(heap, (f_new, neighbor, new_line))
+
+        return [], float("inf")
+
     def minimum_spanning_tree_prim(
         self, weights: list[list[float]]
     ) -> tuple[list[list[float]], float]:

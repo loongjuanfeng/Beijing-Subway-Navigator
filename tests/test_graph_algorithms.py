@@ -30,11 +30,10 @@ def branching_graph():
 @pytest.fixture
 def weighted_graph():
     data = [
-        [0.0, 4.0, 0.0, 0.0, 0.0],
-        [0.0, 0.0, 2.0, 0.0, 0.0],
-        [0.0, 0.0, 0.0, 3.0, 0.0],
-        [0.0, 0.0, 0.0, 0.0, 1.0],
-        [0.0, 0.0, 0.0, 0.0, 0.0],
+        [0.0, 4.0, 0.0, 0.0],
+        [0.0, 0.0, 2.0, 0.0],
+        [0.0, 0.0, 0.0, 3.0],
+        [0.0, 0.0, 0.0, 0.0],
     ]
     return Graph(data)
 
@@ -95,9 +94,9 @@ class TestDFSPathfinding:
 
 class TestDijkstraPathfinding:
     def test_dijkstra_simple_path(self, weighted_graph):
-        path, time = weighted_graph.find_shortest_path_weight(0, 4)
-        assert path == [0, 1, 2, 3, 4]
-        assert time == 10.0
+        path, time = weighted_graph.find_shortest_path_weight(0, 3)
+        assert path == [0, 1, 2, 3]
+        assert time == 9.0
 
     def test_dijkstra_same_start_end(self, weighted_graph):
         path, time = weighted_graph.find_shortest_path_weight(2, 2)
@@ -356,3 +355,136 @@ class TestTransferAwareRouting:
 
         assert path == [1]
         assert time == 0.0
+
+
+class TestAStarPathfinding:
+    def test_astar_optimality_vs_dijkstra(self, weighted_graph):
+        path_d, time_d = weighted_graph.find_shortest_path_weight(0, 3)
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L1",
+            (3, 2): "L1",
+        }
+        path_a, time_a = weighted_graph.find_shortest_path_astar_with_transfers(
+            0,
+            3,
+            edge_to_line,
+            {i: set() for i in range(4)},
+            {},
+            {i: str(i) for i in range(4)},
+            [[0.0] * 4 for _ in range(4)],
+        )
+        assert path_a == path_d
+        assert abs(time_a - time_d) < 0.01
+
+    def test_astar_transfer_aware_simple_path(self):
+        data = [
+            [0.0, 2.0, 0.0, 0.0],
+            [2.0, 0.0, 3.0, 0.0],
+            [0.0, 3.0, 0.0, 4.0],
+            [0.0, 0.0, 4.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L1",
+            (3, 2): "L1",
+        }
+        station_to_lines = {0: {"L1"}, 1: {"L1"}, 2: {"L1"}, 3: {"L1"}}
+        transfer_time = {}
+        idx_to_name = {0: "A", 1: "B", 2: "C", 3: "D"}
+        heuristic_table = [[0.0] * 4 for _ in range(4)]
+
+        path, time = graph.find_shortest_path_astar_with_transfers(
+            0, 3, edge_to_line, station_to_lines, transfer_time, idx_to_name, heuristic_table
+        )
+
+        assert path == [0, 1, 2, 3]
+        assert time == 9.0
+
+    def test_astar_with_single_transfer(self):
+        data = [
+            [0.0, 2.0, 0.0, 0.0],
+            [2.0, 0.0, 3.0, 0.0],
+            [0.0, 3.0, 0.0, 2.0],
+            [0.0, 0.0, 2.0, 0.0],
+        ]
+        graph = Graph(data)
+
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L2",
+            (3, 2): "L2",
+        }
+        station_to_lines = {0: {"L1"}, 1: {"L1"}, 2: {"L1", "L2"}, 3: {"L2"}}
+        transfer_time = {"C": {("L1", "L2"): 5.0}}
+        idx_to_name = {0: "A", 1: "B", 2: "C", 3: "D"}
+        heuristic_table = [[0.0] * 4 for _ in range(4)]
+
+        path, time = graph.find_shortest_path_astar_with_transfers(
+            0, 3, edge_to_line, station_to_lines, transfer_time, idx_to_name, heuristic_table
+        )
+
+        assert path == [0, 1, 2, 3]
+        assert time == 12.0
+
+    def test_astar_unreachable(self, unreachable_graph):
+        path, time = unreachable_graph.find_shortest_path_astar_with_transfers(
+            0,
+            3,
+            {},
+            {0: set(), 1: set(), 2: set(), 3: set()},
+            {},
+            {i: str(i) for i in range(4)},
+            [[float("inf")] * 4 for _ in range(4)],
+        )
+
+        assert path == []
+        assert time == float("inf")
+
+    def test_astar_same_start_end(self, weighted_graph):
+        path, time = weighted_graph.find_shortest_path_astar_with_transfers(
+            2,
+            2,
+            {},
+            {i: set() for i in range(5)},
+            {},
+            {i: str(i) for i in range(5)},
+            [[0.0] * 5 for _ in range(5)],
+        )
+
+        assert path == [2]
+        assert time == 0.0
+
+    def test_astar_zero_heuristic_behaves_like_dijkstra(self, weighted_graph):
+        path_d, time_d = weighted_graph.find_shortest_path_weight(0, 3)
+        edge_to_line = {
+            (0, 1): "L1",
+            (1, 0): "L1",
+            (1, 2): "L1",
+            (2, 1): "L1",
+            (2, 3): "L1",
+            (3, 2): "L1",
+        }
+        path_a, time_a = weighted_graph.find_shortest_path_astar_with_transfers(
+            0,
+            3,
+            edge_to_line,
+            {i: set() for i in range(4)},
+            {},
+            {i: str(i) for i in range(4)},
+            [[0.0] * 4 for _ in range(4)],
+        )
+
+        assert path_a == path_d
+        assert abs(time_a - time_d) < 0.01
