@@ -54,6 +54,7 @@ See [I18N_USAGE.md](./I18N_USAGE.md) for adding new languages.
 - `pytest` — Testing framework
 - `pytest-cov` — Coverage reporting (99.55%)
 - `pytest-xdist` — Parallel test execution
+- `pytest-benchmark` — Performance benchmarking
 - `ruff` — Linting & formatting
 - `uv` — Package manager
 
@@ -136,6 +137,76 @@ uv run pytest --cov=graph --cov-report=html
 
 See [tests/README.md](./tests/README.md) for detailed test documentation.
 
+## ⚡ Performance Benchmarking
+
+Comprehensive benchmarks for all pathfinding algorithms using pytest-benchmark.
+
+### Benchmark Coverage
+
+**43 benchmarks** across all pathfinding algorithms:
+- **test_pathfinding.py**: 32 benchmarks on synthetic graphs (tiny, small, medium, dense, sparse, complex weighted)
+- **test_real_subway.py**: 15 benchmarks on real Beijing Subway data (~389 stations, ~463 track segments)
+
+### Algorithms Benchmarked
+
+| Algorithm | Purpose | Tests |
+|------------|---------|--------|
+| BFS | Fewest stations (unweighted) | 6 |
+| DFS | Any path (exploration) | 5 |
+| Dijkstra | Minimum travel time (weighted) | 6 |
+| CPX | Matrix power method (experimental) | 4 |
+| Dijkstra with transfers | Fastest route with line change penalties | 3 |
+| A* with transfers | Heuristic-guided fastest route | 5 |
+| Algorithm correctness | Verify optimality between algorithms | 4 |
+
+### Running Benchmarks
+
+```bash
+# Run all benchmarks
+uv run pytest tests/benchmarks/ -v
+
+# Run benchmarks only (skip non-benchmark tests)
+uv run pytest tests/benchmarks/ --benchmark-only
+
+# Run specific benchmark file
+uv run pytest tests/benchmarks/test_pathfinding.py -v
+uv run pytest tests/benchmarks/test_real_subway.py -v
+
+# Generate performance summary table
+uv run pytest tests/benchmarks/ --benchmark-only
+
+# Save benchmark results for comparison
+uv run pytest tests/benchmarks/ --benchmark-save=benchmark_results.json
+
+# Compare with previous results
+uv run pytest tests/benchmarks/ --benchmark-compare=benchmark_results.json
+
+# Run with more rounds for accuracy
+uv run pytest tests/benchmarks/ --benchmark-min-rounds=10
+
+# Enable warmup for JIT compilation
+uv run pytest tests/benchmarks/ --benchmark-warmup
+```
+
+### Benchmark Scenarios
+
+**Synthetic Graphs (test_pathfinding.py)**
+- Tiny graphs (3 vertices): Basic functionality tests
+- Small graphs (5 vertices): Simple path validation
+- Medium graphs (10 vertices): Branching structure tests
+- Dense graphs (15 vertices): Highly connected network stress tests
+- Sparse graphs (20 vertices): Linear structure tests
+- Complex weighted graphs: Algorithm comparison tests
+
+**Real Subway Data (test_real_subway.py)**
+- Short same-line routes: 苹果园 → 八角游乐园 (baseline performance)
+- Medium routes (1 transfer): 西直门 → 复兴门 (transfer handling)
+- Long cross-city routes: 西直门 → 国贸 (realistic queries)
+- Hub-to-hub routes: 天安门东 → 北京站 (major station routing)
+- Complex multi-transfer routes: 苹果园 → 大兴机场 (worst-case scenarios)
+
+See [tests/benchmarks/README.md](./tests/benchmarks/README.md) for detailed benchmark documentation.
+
 ## 📁 Project Structure
 
 ```
@@ -153,7 +224,11 @@ Beijing-Subway-Navigator/
 └── tests/                  # Test suite (99.55% coverage)
     ├── test_graph_basic.py
     ├── test_graph_algorithms.py
-    └── test_graph_properties.py
+    ├── test_graph_properties.py
+    └── benchmarks/              # Performance benchmark tests (43 tests)
+        ├── test_pathfinding.py   # Synthetic graph benchmarks
+        ├── test_real_subway.py   # Real subway data benchmarks
+        └── README.md           # Benchmark documentation
 ```
 
 ## 🚀 Example Usage
