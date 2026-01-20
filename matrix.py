@@ -1,5 +1,17 @@
+from __future__ import annotations
+
+
 class Matrix:
-    def __init__(self, data=None, dim=None, init_value=0):
+    data: list[list[float]]
+    dim: tuple[int, int]
+    init_value: float
+
+    def __init__(
+        self,
+        data: list[list[float]] | None = None,
+        dim: tuple[int, int] | None = None,
+        init_value: float = 0,
+    ) -> None:
         if data == None and dim == None:
             raise ValueError("1-1: Lack enough variables")
         if data is not None:
@@ -26,7 +38,7 @@ class Matrix:
             else:
                 row_num = len(data)
                 col_num = len(data[0])
-                dim = (row_num, col_num)
+                dim = (row_num, col_num)  # type: ignore[assignment]
         else:
             if not isinstance(dim, tuple):
                 raise TypeError("1-5: The variable 'dim' should be a tuple")
@@ -36,6 +48,8 @@ class Matrix:
             if not (isinstance(m, int) and isinstance(n, int)):
                 raise TypeError("1-7: The elements in 'dim' should be integers")
             data = [[init_value for _ in range(n)] for _ in range(m)]
+        assert data is not None, "data should not be None after validation"
+        assert dim is not None, "dim should not be None after validation"
         self.data = data
         self.dim = dim
         self.init_value = init_value
