@@ -319,7 +319,10 @@ class BeijingSubwaySystem:
                 elif choice == "6":
                     print(_("\n[Experimental] Computing path via Matrix Multiplication (CPX)..."))
                     res = self.graph.find_shortest_path_cpx(s_id, e_id)
-                    print(_("CPX Result: {result}").format(result=res))
+                    if res:
+                        self.print_path(res)
+                    else:
+                        print(_("CPX Result: No path found"))
 
             elif choice == "4":
                 print(_("\nCalculating Minimum Spanning Tree (Prim's Algorithm)..."))

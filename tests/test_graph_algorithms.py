@@ -127,7 +127,7 @@ class TestCPXPathfinding:
     def test_cpx_simple_path(self, simple_path_graph):
         result = simple_path_graph.find_shortest_path_cpx(0, 4)
         assert result is not None
-        assert "Path exists" in result[0]
+        assert result == [0, 1, 2, 3, 4]
 
     def test_cpx_same_start_end(self, simple_path_graph):
         result = simple_path_graph.find_shortest_path_cpx(2, 2)
@@ -142,7 +142,7 @@ class TestCPXPathfinding:
         graph = Graph(data)
         result = graph.find_shortest_path_cpx(0, 1)
         assert result is not None
-        assert len(result) > 0 and "Path exists" in str(result[0])
+        assert result == [0, 1]
 
 
 class TestPathComparison:

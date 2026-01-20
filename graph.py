@@ -77,6 +77,20 @@ class Graph:
             current = parent[current]
         return path[::-1]
 
+    def _reconstruct_cpx_path(
+        self, matrices: list[Matrix], k: int, start: int, end: int
+    ) -> list[int]:
+        """Reconstruct path from matrix powers. k is path length (number of edges)."""
+        if k == 1:
+            return [start, end]
+
+        for m in range(len(matrices[0].data)):
+            if matrices[0].data[start][m] != 0 and matrices[k - 2].data[m][end] != 0:
+                rest_path = self._reconstruct_cpx_path(matrices, k - 1, m, end)
+                return [start] + rest_path
+
+        return []
+
     def find_shortest_path_cpx(self, start: int, end: int) -> list[int] | None:
         if start == end:
             return [start]
@@ -84,16 +98,18 @@ class Graph:
         matrices = [Matrix(copy.deepcopy(self.data))]
         found = False
         limit = 10
+        path_length = 0
 
         for i in range(limit):
             if matrices[-1].data[start][end] != 0:
                 found = True
+                path_length = i + 1
                 break
             matrices.append(matrices[-1] * adj_matrix)
 
         if not found:
             return None
-        return ["Path exists (Computed via Matrix Power)"]  # type: ignore[return-value]
+        return self._reconstruct_cpx_path(matrices, path_length, start, end)
 
     def find_shortest_path_bfs(self, start: int, end: int) -> list[int] | None:
         vertices_count = len(self.data)
