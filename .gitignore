@@ -25,3 +25,6 @@ ENV/
 uv.lock
 .ruff_cache/
 .python-version
+
+# Data files (optional - uncomment if you want to keep data private)
+# data/

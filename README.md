@@ -12,8 +12,31 @@ This project simulates the Beijing Subway network as a weighted undirected graph
 
 It features a custom `Matrix` class for algebraic operations and a `Graph` class capable of complex topological analysis, including shortest path finding, minimum spanning tree calculation, and network resilience testing.
 
-### 📊 Data Source
-The edge weights (travel times between stations) used in this system are based on the following data:
+### 📊 Data Source & Format
+
+The subway network data is stored in JSON format for easy maintenance and updates:
+
+**Data Files:**
+- `data/subway_lines.json` - Contains all 26 subway lines with stations and segment distances
+- `data/interchange_stations.json` - Transfer station data (available for future use)
+
+**Data Structure:**
+```json
+{
+  "1号线": {
+    "name": "1号线",
+    "stations": ["苹果园", "古城", "八角游乐园", ...],
+    "segments": [
+      {"from": "苹果园", "to": "古城", "distance_minutes": 3.0},
+      ...
+    ],
+    "total_stations": 36
+  }
+}
+```
+
+**Source Data:**
+The edge weights (travel times between stations) are based on:
 * **Source:** [北京地铁区间用时地图 250124版本 - 哔哩哔哩](https://search.bilibili.com/all?keyword=北京地铁区间用时地图%20250124版本)
 
 ## ⚠️ Limitations
@@ -54,7 +77,8 @@ This project is built purely in **Python** with no external dependencies.
 
 ### Installation
 1.  Clone the repository or download the source code.
-2.  Ensure `subway_navigation.py` is in your working directory.
+2.  Ensure `subway_navigation.py` and the `data/` directory are in your working directory.
+3.  The `data/` folder contains JSON files with all subway line information.
 
 ### Usage
 Run the script directly in your terminal:

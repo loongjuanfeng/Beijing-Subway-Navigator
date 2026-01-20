@@ -1,0 +1,2390 @@
+[
+  {
+    "station": "公主坟",
+    "from_line": "1号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "军事博物馆",
+    "from_line": "9号线",
+    "to_line": "1号线",
+    "transfer_time_minutes": 4.0
+  },
+  {
+    "station": "木樨地",
+    "from_line": "1号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 8.0
+  },
+  {
+    "station": "复兴门",
+    "from_line": "2号线",
+    "to_line": "1号线",
+    "transfer_time_minutes": 0.42
+  },
+  {
+    "station": "复兴门",
+    "from_line": "1号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "复兴门",
+    "from_line": "1号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 12.0
+  },
+  {
+    "station": "复兴门",
+    "from_line": "2号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 11.5
+  },
+  {
+    "station": "西单",
+    "from_line": "1号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "王府井",
+    "from_line": "1号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "东单",
+    "from_line": "1号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "建国门",
+    "from_line": "2号线",
+    "to_line": "1号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "建国门",
+    "from_line": "1号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "建国门",
+    "from_line": "1号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 1.83
+  },
+  {
+    "station": "国贸",
+    "from_line": "1号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 3.33
+  },
+  {
+    "station": "国贸",
+    "from_line": "1号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 4.17
+  },
+  {
+    "station": "大望路",
+    "from_line": "1号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 5.0
+  },
+  {
+    "station": "花庄",
+    "from_line": "1号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 4.83
+  },
+  {
+    "station": "西直门",
+    "from_line": "2号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 4.25
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 0.33
+  },
+  {
+    "station": "西直门",
+    "from_line": "2号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 0.33
+  },
+  {
+    "station": "车公庄",
+    "from_line": "6号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "车公庄",
+    "from_line": "2号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "复兴门",
+    "from_line": "2号线",
+    "to_line": "1号线",
+    "transfer_time_minutes": 0.42
+  },
+  {
+    "station": "复兴门",
+    "from_line": "1号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "复兴门",
+    "from_line": "1号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 12.0
+  },
+  {
+    "station": "复兴门",
+    "from_line": "2号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 11.5
+  },
+  {
+    "station": "宣武门",
+    "from_line": "4号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "宣武门",
+    "from_line": "2号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "前门",
+    "from_line": "2号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 4.5
+  },
+  {
+    "station": "前门",
+    "from_line": "8号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.75
+  },
+  {
+    "station": "前门",
+    "from_line": "2号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 3.75
+  },
+  {
+    "station": "崇文门",
+    "from_line": "5号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "崇文门",
+    "from_line": "2号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "建国门",
+    "from_line": "2号线",
+    "to_line": "1号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "建国门",
+    "from_line": "1号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "建国门",
+    "from_line": "1号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 1.83
+  },
+  {
+    "station": "朝阳门",
+    "from_line": "6号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "朝阳门",
+    "from_line": "2号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "东四十条",
+    "from_line": "3号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "东四十条",
+    "from_line": "2号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "东直门",
+    "from_line": "13号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "东直门",
+    "from_line": "2号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 6.0
+  },
+  {
+    "station": "雍和宫",
+    "from_line": "2号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "雍和宫",
+    "from_line": "5号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 1.67
+  },
+  {
+    "station": "雍和宫",
+    "from_line": "5号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 1.83
+  },
+  {
+    "station": "鼓楼大街",
+    "from_line": "2号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "积水潭",
+    "from_line": "2号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "积水潭",
+    "from_line": "19号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.17
+  },
+  {
+    "station": "东四十条",
+    "from_line": "3号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "东四十条",
+    "from_line": "2号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "3号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "3号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "3号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "17号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "17号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "团结湖",
+    "from_line": "3号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "团结湖",
+    "from_line": "3号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "14号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 1.67
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "14号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "3号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "3号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 1.67
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "3号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "3号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 3.17
+  },
+  {
+    "station": "东坝北",
+    "from_line": "12号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "西苑",
+    "from_line": "4号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "海淀黄庄",
+    "from_line": "4号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "海淀黄庄",
+    "from_line": "4号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "人民大学",
+    "from_line": "4号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "16号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "16号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 3.25
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "4/9号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "4/9号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 4.83
+  },
+  {
+    "station": "西直门",
+    "from_line": "2号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 4.25
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 0.33
+  },
+  {
+    "station": "西直门",
+    "from_line": "2号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 0.33
+  },
+  {
+    "station": "平安里",
+    "from_line": "6号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "平安里",
+    "from_line": "6号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 4.67
+  },
+  {
+    "station": "平安里",
+    "from_line": "19号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 7.25
+  },
+  {
+    "station": "西单",
+    "from_line": "1号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "宣武门",
+    "from_line": "4号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "宣武门",
+    "from_line": "2号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "菜市口",
+    "from_line": "4号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "菜市口",
+    "from_line": "7号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "北京南站",
+    "from_line": "4号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "北京南站",
+    "from_line": "14号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "角门西",
+    "from_line": "4号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "新宫",
+    "from_line": "19号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "新宫",
+    "from_line": "19号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.08
+  },
+  {
+    "station": "立水桥",
+    "from_line": "13号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "立水桥",
+    "from_line": "13号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 1.67
+  },
+  {
+    "station": "大屯路东",
+    "from_line": "5号线",
+    "to_line": "15号线",
+    "transfer_time_minutes": 4.75
+  },
+  {
+    "station": "惠新西街南口",
+    "from_line": "5号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "惠新西街南口",
+    "from_line": "5号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "和平西桥",
+    "from_line": "5号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 3.17
+  },
+  {
+    "station": "和平西桥",
+    "from_line": "5号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 3.75
+  },
+  {
+    "station": "雍和宫",
+    "from_line": "2号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "雍和宫",
+    "from_line": "5号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 1.67
+  },
+  {
+    "station": "雍和宫",
+    "from_line": "5号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 1.83
+  },
+  {
+    "station": "东四",
+    "from_line": "6号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 4.0
+  },
+  {
+    "station": "东四",
+    "from_line": "5号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 3.75
+  },
+  {
+    "station": "东单",
+    "from_line": "1号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "崇文门",
+    "from_line": "5号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "崇文门",
+    "from_line": "2号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "磁器口",
+    "from_line": "5号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "蒲黄榆",
+    "from_line": "5号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "5号线",
+    "to_line": "亦庄线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "亦庄线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "10号线",
+    "to_line": "亦庄线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "10号线",
+    "to_line": "亦庄线",
+    "transfer_time_minutes": 2.15
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "5号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.42
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "5号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "10号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "10号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "金安桥",
+    "from_line": "6号线",
+    "to_line": "11号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "金安桥",
+    "from_line": "6号线",
+    "to_line": "S1线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "金安桥",
+    "from_line": "11号线",
+    "to_line": "S1线",
+    "transfer_time_minutes": 4.25
+  },
+  {
+    "station": "苹果园",
+    "from_line": "6号线",
+    "to_line": "S1线",
+    "transfer_time_minutes": 4.0
+  },
+  {
+    "station": "慈寿寺",
+    "from_line": "6号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "慈寿寺",
+    "from_line": "6号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.83
+  },
+  {
+    "station": "慈寿寺",
+    "from_line": "10号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 0.83
+  },
+  {
+    "station": "白石桥南",
+    "from_line": "6号线",
+    "to_line": "9号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "二里沟",
+    "from_line": "6号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "车公庄",
+    "from_line": "6号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "车公庄",
+    "from_line": "2号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "平安里",
+    "from_line": "6号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "平安里",
+    "from_line": "6号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 4.67
+  },
+  {
+    "station": "平安里",
+    "from_line": "19号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 7.25
+  },
+  {
+    "station": "南锣鼓巷",
+    "from_line": "6号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "南锣鼓巷",
+    "from_line": "8号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "东四",
+    "from_line": "6号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 4.0
+  },
+  {
+    "station": "东四",
+    "from_line": "5号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 3.75
+  },
+  {
+    "station": "朝阳门",
+    "from_line": "6号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "朝阳门",
+    "from_line": "2号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "呼家楼",
+    "from_line": "6号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "呼家楼",
+    "from_line": "10号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "金台路",
+    "from_line": "6号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "金台路",
+    "from_line": "14号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "北京西站",
+    "from_line": "9/7号线",
+    "to_line": "9/7号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "北京西站",
+    "from_line": "9/7号线",
+    "to_line": "9/7号线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "达官营",
+    "from_line": "7号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 3.25
+  },
+  {
+    "station": "广安门内",
+    "from_line": "7号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 10.5
+  },
+  {
+    "station": "菜市口",
+    "from_line": "4号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "菜市口",
+    "from_line": "7号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "珠市口",
+    "from_line": "8号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "珠市口",
+    "from_line": "7号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "磁器口",
+    "from_line": "5号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "双井",
+    "from_line": "10号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 2.42
+  },
+  {
+    "station": "九龙山",
+    "from_line": "7号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "九龙山",
+    "from_line": "14号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "九龙山",
+    "from_line": "7号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "花庄",
+    "from_line": "1号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "朱辛庄",
+    "from_line": "8号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "朱辛庄",
+    "from_line": "8号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "霍营",
+    "from_line": "8号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "霍营",
+    "from_line": "8号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 3.17
+  },
+  {
+    "station": "奥林匹克公园",
+    "from_line": "8号线",
+    "to_line": "15号线",
+    "transfer_time_minutes": 4.25
+  },
+  {
+    "station": "北土城",
+    "from_line": "8号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.42
+  },
+  {
+    "station": "北土城",
+    "from_line": "10号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 0.42
+  },
+  {
+    "station": "安华桥",
+    "from_line": "8号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 4.17
+  },
+  {
+    "station": "安华桥",
+    "from_line": "8号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 3.92
+  },
+  {
+    "station": "安华桥",
+    "from_line": "12号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 4.5
+  },
+  {
+    "station": "鼓楼大街",
+    "from_line": "2号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "南锣鼓巷",
+    "from_line": "6号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "南锣鼓巷",
+    "from_line": "8号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "王府井",
+    "from_line": "1号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "前门",
+    "from_line": "2号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 4.5
+  },
+  {
+    "station": "前门",
+    "from_line": "8号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.75
+  },
+  {
+    "station": "前门",
+    "from_line": "2号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 3.75
+  },
+  {
+    "station": "珠市口",
+    "from_line": "8号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "珠市口",
+    "from_line": "7号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "永定门外",
+    "from_line": "14号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "16号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "16号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 3.25
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "4/9号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "4/9号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "白石桥南",
+    "from_line": "6号线",
+    "to_line": "9号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "军事博物馆",
+    "from_line": "9号线",
+    "to_line": "1号线",
+    "transfer_time_minutes": 4.0
+  },
+  {
+    "station": "北京西站",
+    "from_line": "9/7号线",
+    "to_line": "9/7号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "北京西站",
+    "from_line": "9/7号线",
+    "to_line": "9/7号线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "六里桥",
+    "from_line": "9号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "七里庄",
+    "from_line": "9号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.92
+  },
+  {
+    "station": "七里庄",
+    "from_line": "9号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "丰台南路",
+    "from_line": "9号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "郭公庄",
+    "from_line": "9号线",
+    "to_line": "房山线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "郭公庄",
+    "from_line": "9号线",
+    "to_line": "房山线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "苏州街",
+    "from_line": "16号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "海淀黄庄",
+    "from_line": "4号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "知春路",
+    "from_line": "10号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "知春路",
+    "from_line": "10号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "西土城",
+    "from_line": "10号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "牡丹园",
+    "from_line": "19号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "牡丹园",
+    "from_line": "10号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "北土城",
+    "from_line": "8号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.42
+  },
+  {
+    "station": "北土城",
+    "from_line": "10号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 0.42
+  },
+  {
+    "station": "惠新西街南口",
+    "from_line": "5号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "惠新西街南口",
+    "from_line": "5号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "芍药居",
+    "from_line": "10号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "芍药居",
+    "from_line": "10号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "太阳宫",
+    "from_line": "10号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "三元桥",
+    "from_line": "12号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 3.58
+  },
+  {
+    "station": "团结湖",
+    "from_line": "3号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "团结湖",
+    "from_line": "3号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "呼家楼",
+    "from_line": "6号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "呼家楼",
+    "from_line": "10号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "国贸",
+    "from_line": "1号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 3.33
+  },
+  {
+    "station": "国贸",
+    "from_line": "1号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 4.17
+  },
+  {
+    "station": "双井",
+    "from_line": "10号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 2.42
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "十里河",
+    "from_line": "14号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "十里河",
+    "from_line": "14号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 4.17
+  },
+  {
+    "station": "十里河",
+    "from_line": "17号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 4.5
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "5号线",
+    "to_line": "亦庄线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "亦庄线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "10号线",
+    "to_line": "亦庄线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "10号线",
+    "to_line": "亦庄线",
+    "transfer_time_minutes": 2.15
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "5号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.42
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "5号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "10号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "宋家庄",
+    "from_line": "10号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "角门西",
+    "from_line": "4号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "草桥",
+    "from_line": "10号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 5.33
+  },
+  {
+    "station": "首经贸",
+    "from_line": "房山线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "首经贸",
+    "from_line": "10号线",
+    "to_line": "房山线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "丰台站",
+    "from_line": "10号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "西局",
+    "from_line": "14号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "西局",
+    "from_line": "10号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "六里桥",
+    "from_line": "9号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "公主坟",
+    "from_line": "1号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "慈寿寺",
+    "from_line": "6号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "慈寿寺",
+    "from_line": "6号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.83
+  },
+  {
+    "station": "慈寿寺",
+    "from_line": "10号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 0.83
+  },
+  {
+    "station": "长春桥",
+    "from_line": "12号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "长春桥",
+    "from_line": "12号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "苏州桥",
+    "from_line": "12号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "苏州桥",
+    "from_line": "12号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "人民大学",
+    "from_line": "4号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "人民大学",
+    "from_line": "12号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "大钟寺",
+    "from_line": "13号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 7.83
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "12号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.92
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "12号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "12号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "昌平线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "昌平线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "北太平庄",
+    "from_line": "12号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "北太平庄",
+    "from_line": "19号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "北太平庄",
+    "from_line": "19号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "安华桥",
+    "from_line": "8号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 4.17
+  },
+  {
+    "station": "安华桥",
+    "from_line": "8号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 3.92
+  },
+  {
+    "station": "安华桥",
+    "from_line": "12号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 4.5
+  },
+  {
+    "station": "和平西桥",
+    "from_line": "5号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 3.17
+  },
+  {
+    "station": "和平西桥",
+    "from_line": "5号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 3.75
+  },
+  {
+    "station": "光熙门",
+    "from_line": "12号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 5.0
+  },
+  {
+    "station": "西坝河",
+    "from_line": "12号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "西坝河",
+    "from_line": "12号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "西坝河",
+    "from_line": "12号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "西坝河",
+    "from_line": "17号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "西坝河",
+    "from_line": "17号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "三元桥",
+    "from_line": "12号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 3.58
+  },
+  {
+    "station": "东坝北",
+    "from_line": "12号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 4.83
+  },
+  {
+    "station": "西直门",
+    "from_line": "2号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 4.25
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "西直门",
+    "from_line": "4号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 0.33
+  },
+  {
+    "station": "西直门",
+    "from_line": "2号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 0.33
+  },
+  {
+    "station": "大钟寺",
+    "from_line": "13号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 7.83
+  },
+  {
+    "station": "知春路",
+    "from_line": "10号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "知春路",
+    "from_line": "10号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "清河站",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "西二旗",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "西二旗",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "西二旗",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "西二旗",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "霍营",
+    "from_line": "8号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "霍营",
+    "from_line": "8号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 3.17
+  },
+  {
+    "station": "立水桥",
+    "from_line": "13号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "立水桥",
+    "from_line": "13号线",
+    "to_line": "5号线",
+    "transfer_time_minutes": 1.67
+  },
+  {
+    "station": "望京西",
+    "from_line": "13号线",
+    "to_line": "15号线",
+    "transfer_time_minutes": 4.75
+  },
+  {
+    "station": "望京西",
+    "from_line": "13号线",
+    "to_line": "15号线",
+    "transfer_time_minutes": 4.92
+  },
+  {
+    "station": "芍药居",
+    "from_line": "10号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "芍药居",
+    "from_line": "10号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "光熙门",
+    "from_line": "12号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 5.0
+  },
+  {
+    "station": "东直门",
+    "from_line": "13号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "东直门",
+    "from_line": "2号线",
+    "to_line": "13号线",
+    "transfer_time_minutes": 6.0
+  },
+  {
+    "station": "七里庄",
+    "from_line": "9号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.92
+  },
+  {
+    "station": "七里庄",
+    "from_line": "9号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "西局",
+    "from_line": "14号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "西局",
+    "from_line": "10号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "景风门",
+    "from_line": "14号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "北京南站",
+    "from_line": "4号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "北京南站",
+    "from_line": "14号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "永定门外",
+    "from_line": "14号线",
+    "to_line": "8号线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "蒲黄榆",
+    "from_line": "5号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "十里河",
+    "from_line": "14号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "十里河",
+    "from_line": "14号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 4.17
+  },
+  {
+    "station": "十里河",
+    "from_line": "17号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 4.5
+  },
+  {
+    "station": "九龙山",
+    "from_line": "7号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "九龙山",
+    "from_line": "14号线",
+    "to_line": "7号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "九龙山",
+    "from_line": "7号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "大望路",
+    "from_line": "1号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 5.0
+  },
+  {
+    "station": "金台路",
+    "from_line": "6号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "金台路",
+    "from_line": "14号线",
+    "to_line": "6号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "14号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 1.67
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "14号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "3号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "3号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 1.67
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "3号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "朝阳公园",
+    "from_line": "3号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 3.17
+  },
+  {
+    "station": "望京",
+    "from_line": "15号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "六道口",
+    "from_line": "15号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "奥林匹克公园",
+    "from_line": "8号线",
+    "to_line": "15号线",
+    "transfer_time_minutes": 4.25
+  },
+  {
+    "station": "大屯路东",
+    "from_line": "5号线",
+    "to_line": "15号线",
+    "transfer_time_minutes": 4.75
+  },
+  {
+    "station": "望京西",
+    "from_line": "13号线",
+    "to_line": "15号线",
+    "transfer_time_minutes": 4.75
+  },
+  {
+    "station": "望京西",
+    "from_line": "13号线",
+    "to_line": "15号线",
+    "transfer_time_minutes": 4.92
+  },
+  {
+    "station": "望京",
+    "from_line": "15号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "西苑",
+    "from_line": "4号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "苏州街",
+    "from_line": "16号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "苏州桥",
+    "from_line": "12号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "苏州桥",
+    "from_line": "12号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "16号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "16号线",
+    "to_line": "4/9号线",
+    "transfer_time_minutes": 3.25
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "9号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "国家图书馆",
+    "from_line": "4号线",
+    "to_line": "9号线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "二里沟",
+    "from_line": "6号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 1.17
+  },
+  {
+    "station": "木樨地",
+    "from_line": "1号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 8.0
+  },
+  {
+    "station": "达官营",
+    "from_line": "7号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 3.25
+  },
+  {
+    "station": "东管头南",
+    "from_line": "房山线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "丰台站",
+    "from_line": "10号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "丰台南路",
+    "from_line": "9号线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "太阳宫",
+    "from_line": "10号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "西坝河",
+    "from_line": "12号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "西坝河",
+    "from_line": "12号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "西坝河",
+    "from_line": "12号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "西坝河",
+    "from_line": "17号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 1.75
+  },
+  {
+    "station": "西坝河",
+    "from_line": "17号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "3号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "3号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "3号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "17号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 1.33
+  },
+  {
+    "station": "工人体育场",
+    "from_line": "17号线",
+    "to_line": "3号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "十里河",
+    "from_line": "14号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.67
+  },
+  {
+    "station": "十里河",
+    "from_line": "10号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "十里河",
+    "from_line": "14号线",
+    "to_line": "17号线",
+    "transfer_time_minutes": 4.17
+  },
+  {
+    "station": "十里河",
+    "from_line": "17号线",
+    "to_line": "14号线",
+    "transfer_time_minutes": 4.5
+  },
+  {
+    "station": "牡丹园",
+    "from_line": "19号线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "牡丹园",
+    "from_line": "10号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "北太平庄",
+    "from_line": "12号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "北太平庄",
+    "from_line": "19号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "北太平庄",
+    "from_line": "19号线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 2.0
+  },
+  {
+    "station": "积水潭",
+    "from_line": "2号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 2.83
+  },
+  {
+    "station": "积水潭",
+    "from_line": "19号线",
+    "to_line": "2号线",
+    "transfer_time_minutes": 3.17
+  },
+  {
+    "station": "平安里",
+    "from_line": "6号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 3.0
+  },
+  {
+    "station": "平安里",
+    "from_line": "6号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 4.67
+  },
+  {
+    "station": "平安里",
+    "from_line": "19号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 7.25
+  },
+  {
+    "station": "牛街",
+    "from_line": "7号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 10.5
+  },
+  {
+    "station": "景风门",
+    "from_line": "14号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 3.5
+  },
+  {
+    "station": "草桥",
+    "from_line": "10号线",
+    "to_line": "19号线",
+    "transfer_time_minutes": 5.33
+  },
+  {
+    "station": "新宫",
+    "from_line": "19号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.33
+  },
+  {
+    "station": "新宫",
+    "from_line": "19号线",
+    "to_line": "4号线",
+    "transfer_time_minutes": 2.08
+  },
+  {
+    "station": "阎村东",
+    "from_line": "房山线",
+    "to_line": "燕房线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "郭公庄",
+    "from_line": "9号线",
+    "to_line": "房山线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "郭公庄",
+    "from_line": "9号线",
+    "to_line": "房山线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "首经贸",
+    "from_line": "房山线",
+    "to_line": "10号线",
+    "transfer_time_minutes": 2.17
+  },
+  {
+    "station": "首经贸",
+    "from_line": "10号线",
+    "to_line": "房山线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "东管头南",
+    "from_line": "房山线",
+    "to_line": "16号线",
+    "transfer_time_minutes": 2.5
+  },
+  {
+    "station": "朱辛庄",
+    "from_line": "8号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "朱辛庄",
+    "from_line": "8号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 0.17
+  },
+  {
+    "station": "西二旗",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 0.75
+  },
+  {
+    "station": "西二旗",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 0.5
+  },
+  {
+    "station": "西二旗",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 2.25
+  },
+  {
+    "station": "西二旗",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.0
+  },
+  {
+    "station": "清河站",
+    "from_line": "13号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.5
+  },
+  {
+    "station": "六道口",
+    "from_line": "15号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "西土城",
+    "from_line": "10号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 2.75
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "12号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.92
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "12号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 0.67
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "12号线",
+    "to_line": "昌平线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "昌平线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 1.25
+  },
+  {
+    "station": "蓟门桥",
+    "from_line": "昌平线",
+    "to_line": "12号线",
+    "transfer_time_minutes": 0.67
+  }
+]
