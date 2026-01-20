@@ -1,95 +1,97 @@
 # 🚇 Beijing Subway Graph Navigation
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Python](https://img.shields.io/badge/Python-3.12%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
+![Tests](https://img.shields.io/badge/coverage-99.55%25-success)
 ![Status](https://img.shields.io/badge/status-active-success)
 
-> **A terminal-based navigation system for the Beijing Subway, built from scratch using custom Matrix and Graph implementations.**
+> **Terminal-based Beijing Subway navigator with custom Matrix and Graph implementations.**
 
-## 📖 About The Project
+## 📖 Overview
 
-This project simulates the Beijing Subway network as a weighted undirected graph. unlike standard navigation tools that rely on libraries like `networkx` or `numpy`, this project implements **core linear algebra and graph theory concepts from scratch**.
+Simulates Beijing's subway network as a weighted undirected graph using pure Python—no numpy, no networkx. Implements core graph theory algorithms from scratch including Dijkstra, BFS, DFS, Prim's MST, and CPX (Matrix Power) pathfinding.
 
-It features a custom `Matrix` class for algebraic operations and a `Graph` class capable of complex topological analysis, including shortest path finding, minimum spanning tree calculation, and network resilience testing.
+**Network Scale:** 26 subway lines, ~475 stations, ~950 track segments
 
-### 📊 Data Source & Format
+### Data Source
+Travel times sourced from [北京地铁区间用时地图 250124版本](https://search.bilibili.com/all?keyword=北京地铁区间用时地图%20250124版本)
 
-The subway network data is stored in JSON format for easy maintenance and updates:
+## ✨ Features
 
-**Data Files:**
-- `data/subway_lines.json` - Contains all 26 subway lines with stations and segment distances
-- `data/interchange_stations.json` - Transfer station data (available for future use)
+| Feature | Algorithm | Description |
+|---------|-----------|-------------|
+| ⏱️ Fastest Route | Dijkstra | Minimum travel time (time-weighted) |
+| 🛑 Least Stops | BFS | Fewest stations visited |
+| 🧪 Random Path | DFS | Any feasible path (exploration) |
+| 🔬 CPX Check | Matrix Power | Algebraic connectivity path check (experimental) |
+| 🌐 Network Cost | Prim's MST | Minimum length to connect all stations |
+| 🔍 Hub Analysis | Degree Centrality | Identifies transfer hubs vs regular stops |
+| 📊 Connectivity | BFS/DFS | Check network connectedness and components |
+| 🚧 Disruption | Edge Removal | Simulate track failures |
+| ⚠️ Hell Stations | Custom Set | Warns about difficult transfers |
 
-**Data Structure:**
-```json
-{
-  "1号线": {
-    "name": "1号线",
-    "stations": ["苹果园", "古城", "八角游乐园", ...],
-    "segments": [
-      {"from": "苹果园", "to": "古城", "distance_minutes": 3.0},
-      ...
-    ],
-    "total_stations": 36
-  }
-}
+### 🌍 Internationalization
+
+Supports English and Chinese via GNU gettext:
+```bash
+LANGUAGE=zh python subway_navigation.py  # Chinese
+LANGUAGE=en python subway_navigation.py  # English
 ```
 
-**Source Data:**
-The edge weights (travel times between stations) are based on:
-* **Source:** [北京地铁区间用时地图 250124版本 - 哔哩哔哩](https://search.bilibili.com/all?keyword=北京地铁区间用时地图%20250124版本)
+See [I18N_USAGE.md](./I18N_USAGE.md) for adding new languages.
 
 ## ⚠️ Limitations
 
-* **No Transfer Time Estimation:**
-    The current algorithm calculates travel time based solely on station-to-station track intervals. It **does not account for the walking time required to transfer between lines**.
-    * *Consequence:* The system treats transfers as instantaneous (zero-cost). This may result in recommended routes that are mathematically fastest on the rails but practically slower due to **extremely long walking distances** at complex transfer hubs (e.g., swapping lines at *Xizhimen* or *Ping'anli*).
+**No Transfer Time:** Treats transfers as zero-cost. Routes may recommend transfers at complex hubs (西直门, 东直门) despite 8+ minute walks. Hell station warnings are the only mitigation.
 
-## ✨ Key Features
+## 🛠 Technical Stack
 
-The system offers an interactive CLI with the following capabilities:
+**Core:** Python 3.12+ (no runtime dependencies)
 
-* **⏱️ Fastest Route (Dijkstra):** Calculates the path with the minimum travel time using edge weights.
-* **🛑 Least Stops (BFS):** Finds the route with the fewest number of station transfers using Breadth-First Search.
-* **🌐 Network Cost (Prim's MST):** Computes the Minimum Spanning Tree to determine the minimum total length required to connect all stations.
-* **🔍 Hub Analysis (Degree Centrality):** Identifies transfer hubs versus regular stops based on vertex degree.
-* **🧪 Experimental Routing (Matrix Power):** Checks path existence via adjacency matrix multiplication (CPX method).
-* **🚧 Disruption Simulation:** Allows users to dynamically remove edges (tracks) to simulate engineering failures and observe network effects.
-* **⚠️ "Hell Station" Detection:** Automatically warns users if their route passes through notorious transfer stations (e.g., Xizhimen, Dongzhimen).
+**Dev:**
+- `pytest` — Testing framework
+- `pytest-cov` — Coverage reporting (99.55%)
+- `pytest-xdist` — Parallel test execution
+- `ruff` — Linting & formatting
+- `uv` — Package manager
 
-## 🛠 Technical Implementation
-
-This project is built purely in **Python** with no external dependencies.
-
-* **Custom Matrix Class:** Supports addition, multiplication, transposition, and exponentiation.
-* **Graph Class:** Implements adjacency matrices.
-* **Algorithms:**
-    * Dijkstra's Algorithm (Weighted Shortest Path)
-    * Breadth-First Search (BFS)
-    * Depth-First Search (DFS)
-    * Prim's Algorithm (MST)
-    * Connected Components Analysis
+**Custom Implementations:**
+- `Matrix` class — Linear algebra operations
+- `Graph` class — Adjacency matrix + 15+ algorithms
 
 ## ⚡ Getting Started
 
 ### Prerequisites
-* Python 3.x installed on your machine.
+- Python 3.12+
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) (recommended)
 
 ### Installation
-1.  Clone the repository or download the source code.
-2.  Ensure `subway_navigation.py` and the `data/` directory are in your working directory.
-3.  The `data/` folder contains JSON files with all subway line information.
-
-### Usage
-Run the script directly in your terminal:
 
 ```bash
-python subway_navigation.py
+# Clone repository
+git clone <repo-url>
+cd Beijing-Subway-Navigator
+
+# Install dev dependencies with uv
+uv sync
 ```
 
-Follow the interactive menu prompts:
+### Running
 
-```text
+```bash
+# Direct execution
+python subway_navigation.py
+
+# With uv
+uv run python subway_navigation.py
+
+# With language selection
+LANGUAGE=zh uv run python subway_navigation.py
+```
+
+### Interactive Menu
+
+```
 ==================================================
    Beijing Subway Graph Navigation System
 ==================================================
@@ -98,13 +100,63 @@ Follow the interactive menu prompts:
 3. [DFS] Random Exploration Path
 4. [Prim] Calculate MST Cost (Total Network Length)
 5. [Degree] Station Hub Analysis
-...
-
+6. [Matrix] Algebraic Connectivity Path (CPX Experiment)
+7. [Components] Check Network Connectivity
+8. [Simulation] Simulate Line Disruption (Remove Edge)
+0. Exit
+==================================================
 ```
 
-## 🚀 Example
+## 🧪 Testing
 
-**Finding the fastest route from "西直门" (Xizhimen) to "国贸" (Guomao):**
+**Coverage:** 99.55% (220/221 statements) — Enforced minimum: 80%
+
+```bash
+# Run all tests
+uv run pytest
+
+# Verbose output
+uv run pytest -v
+
+# Specific test file
+uv run pytest tests/test_graph_algorithms.py
+
+# With coverage report
+uv run pytest --cov=graph --cov-report=term-missing
+
+# Parallel execution (faster)
+uv run pytest -n auto
+
+# Generate HTML coverage
+uv run pytest --cov=graph --cov-report=html
+# Open htmlcov/index.html in browser
+```
+
+See [tests/README.md](./tests/README.md) for detailed test documentation.
+
+## 📁 Project Structure
+
+```
+Beijing-Subway-Navigator/
+├── subway_navigation.py    # Main entry point & CLI (343 lines)
+├── graph.py                # Graph class + algorithms (248 lines)
+├── matrix.py               # Matrix class (107 lines)
+├── pyproject.toml          # Project config
+├── babel.cfg               # i18n extraction config
+├── data/                   # Subway network data
+│   ├── subway_lines.json           # 26 lines + segments
+│   └── interchange_stations.json   # Transfer data (unused)
+├── locale/                 # Translations (en/zh)
+│   └── messages.pot
+└── tests/                  # Test suite (99.55% coverage)
+    ├── test_graph_basic.py
+    ├── test_graph_algorithms.py
+    └── test_graph_properties.py
+```
+
+## 🚀 Example Usage
+
+**Finding fastest route from 西直门 to 国贸:**
 
 ```text
 Enter option number: 1
@@ -114,11 +166,35 @@ Enter end station: 国贸
 Calculating fastest route...
 Estimated Time: 28 minutes
 Route: 西直门 -> 车公庄 -> 平安里 -> 南锣鼓巷 -> 东四 -> 朝阳门 -> 建国门 -> 永安里 -> 国贸
-This route involves stations known for difficult transfers: 西直门, 平安里, 国贸
+⚠️ This route involves stations known for difficult transfers: 西直门, 平安里, 国贸
 Please prepare for long walks or stairs.
-
 ```
+
+## 📊 Data Format
+
+```json
+{
+  "1号线": {
+    "name": "1号线",
+    "stations": ["苹果园", "古城", "八角游乐园", ...],
+    "segments": [
+      {"from": "苹果园", "to": "古城", "distance_minutes": 3.0},
+      ...
+    ],
+    "total_stations": 35
+  }
+}
+```
+
+Modify `data/subway_lines.json` to update network data.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions welcome! Please:
+1. Run tests: `uv run pytest`
+2. Ensure coverage stays >80%
+3. Follow code style: `uv run ruff format .`
+
+## 📄 License
+
+MIT
