@@ -56,6 +56,14 @@ class Graph:
                         return False
         return True
 
+    def _reconstruct_path(self, parent: dict[int, int | None], end: int) -> list[int]:
+        path = []
+        current = end
+        while current is not None:
+            path.append(current)
+            current = parent[current]
+        return path[::-1]
+
     def find_shortest_path_cpx(self, start: int, end: int) -> list[int] | None:
         if start == end:
             return [start]
@@ -77,19 +85,19 @@ class Graph:
     def find_shortest_path_bfs(self, start: int, end: int) -> list[int] | None:
         vertices_count = len(self.data)
         queue = [start]
-        mat = self.data
+        matrix = self.data
         memory: dict[int, int | None] = {start: None}
         found = False
-        idx = 0
-        while idx < len(queue):
-            curr = queue[idx]
-            idx += 1
-            if curr == end:
+        queue_index = 0
+        while queue_index < len(queue):
+            current = queue[queue_index]
+            queue_index += 1
+            if current == end:
                 found = True
                 break
             for i in range(vertices_count):
-                if mat[curr][i] != 0 and i not in memory:
-                    memory[i] = curr
+                if matrix[current][i] != 0 and i not in memory:
+                    memory[i] = current
                     queue.append(i)
                     if i == end:
                         found = True
@@ -98,36 +106,26 @@ class Graph:
                 break
         if not found:
             return None
-        path = []
-        index = end
-        while index is not None:
-            path.append(index)
-            index = memory[index]
-        return path[::-1]
+        return self._reconstruct_path(memory, end)
 
     def find_path_dfs(self, start: int, end: int) -> list[int] | None:
         vertices_count = len(self.data)
         stack = [start]
-        mat = self.data
+        matrix = self.data
         memory: dict[int, int | None] = {start: None}
         found = False
         while len(stack) > 0:
-            curr = stack.pop()
-            if curr == end:
+            current = stack.pop()
+            if current == end:
                 found = True
                 break
             for i in range(vertices_count):
-                if mat[curr][i] != 0 and i not in memory:
-                    memory[i] = curr
+                if matrix[current][i] != 0 and i not in memory:
+                    memory[i] = current
                     stack.append(i)
         if not found:
             return None
-        path = []
-        curr_node = end
-        while curr_node is not None:
-            path.append(curr_node)
-            curr_node = memory[curr_node]
-        return path[::-1]
+        return self._reconstruct_path(memory, end)
 
     def find_shortest_path_weight(
         self, start: int, end: int
@@ -139,31 +137,26 @@ class Graph:
         parent: dict[int, int | None] = {start: None}
         for _ in range(vertices_count):
             min_dist = float("inf")
-            curr = -1
+            current = -1
             for i in range(vertices_count):
                 if not visited[i] and distances[i] < min_dist:
                     min_dist = distances[i]
-                    curr = i
-            if curr == -1 or distances[curr] == float("inf"):
+                    current = i
+            if current == -1 or distances[current] == float("inf"):
                 break
-            if curr == end:
+            if current == end:
                 break
-            visited[curr] = True
+            visited[current] = True
             for i in range(vertices_count):
-                weight = self.data[curr][i]
+                weight = self.data[current][i]
                 if weight > 0 and not visited[i]:
-                    new_dist = distances[curr] + weight
+                    new_dist = distances[current] + weight
                     if new_dist < distances[i]:
                         distances[i] = new_dist
-                        parent[i] = curr
+                        parent[i] = current
         if end not in parent:
             return None, float("inf")
-        path = []
-        curr_node = end
-        while curr_node is not None:
-            path.append(curr_node)
-            curr_node = parent[curr_node]
-        return path[::-1], distances[end]
+        return self._reconstruct_path(parent, end), distances[end]
 
     def minimum_spanning_tree_prim(
         self, weights: list[list[float]]
@@ -186,57 +179,57 @@ class Graph:
                 break
             mst_set[u] = True
             for v in range(n):
-                w = weights[u][v]
-                if w > 0 and not mst_set[v] and w < key[v]:
-                    key[v] = w
+                weight = weights[u][v]
+                if weight > 0 and not mst_set[v] and weight < key[v]:
+                    key[v] = weight
                     parent[v] = u
         mst_matrix: list[list[float]] = [[0.0] * n for _ in range(n)]
         total_weight = 0.0
         for i in range(1, n):
-            p = parent[i]
-            if p is not None:
-                u, v = p, i
+            parent_vertex = parent[i]
+            if parent_vertex is not None:
+                u, v = parent_vertex, i
                 weight = weights[u][v]
                 mst_matrix[u][v] = weight
                 mst_matrix[v][u] = weight
                 total_weight += weight
         return mst_matrix, total_weight
 
-    def connectness(self) -> bool:
+    def is_connected(self) -> bool:
         start_node = 0
-        q = [start_node]
+        queue = [start_node]
         visited = {start_node}
-        while q:
-            u = q.pop(0)
+        while queue:
+            u = queue.pop(0)
             for v in range(len(self.data)):
                 if self.data[u][v] > 0 and v not in visited:
                     visited.add(v)
-                    q.append(v)
+                    queue.append(v)
         return len(visited) == len(self.data)
 
-    def connect_components(self) -> list[list[int]]:
-        mat = self.data
-        vertices_count = len(mat)
+    def connected_components(self) -> list[list[int]]:
+        matrix = self.data
+        vertices_count = len(matrix)
         visited = [False] * vertices_count
-        res = []
+        result = []
         for index in range(vertices_count):
             if not visited[index]:
                 component = []
-                q = [index]
+                queue = [index]
                 visited[index] = True
-                while q:
-                    u = q.pop(0)
+                while queue:
+                    u = queue.pop(0)
                     component.append(u)
                     for v in range(vertices_count):
-                        if mat[u][v] > 0 and not visited[v]:
+                        if matrix[u][v] > 0 and not visited[v]:
                             visited[v] = True
-                            q.append(v)
-                res.append(component)
-        return res
+                            queue.append(v)
+                result.append(component)
+        return result
 
     def is_bipartite_bfs(self) -> bool:
-        mat = self.data
-        vertices_count = len(mat)
+        matrix = self.data
+        vertices_count = len(matrix)
         color: dict[int, int] = {}
         for start in range(vertices_count):
             if start not in color:
@@ -245,7 +238,7 @@ class Graph:
                 while queue:
                     u = queue.pop(0)
                     for v in range(vertices_count):
-                        if mat[u][v] != 0:
+                        if matrix[u][v] != 0:
                             if v not in color:
                                 color[v] = 1 - color[u]
                                 queue.append(v)

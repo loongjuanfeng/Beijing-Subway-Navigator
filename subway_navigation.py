@@ -304,8 +304,8 @@ class BeijingSubwaySystem:
 
             elif choice == "7":
                 print(_("\nAnalyzing network structure..."))
-                is_connected = self.graph.connectness()
-                components = self.graph.connect_components()
+                is_connected = self.graph.is_connected()
+                components = self.graph.connected_components()
                 print(
                     _("Is network fully connected: {is_connected}").format(
                         is_connected=is_connected
