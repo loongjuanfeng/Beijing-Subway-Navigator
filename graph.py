@@ -1,20 +1,27 @@
+from __future__ import annotations
+
 import copy
 
 from matrix import Matrix
 
 
 class Graph:
-    def __init__(self, data=[]):
-        self.data = data
+    data: list[list[float]]
 
-    def get_neighbors(self, vertex):
+    def __init__(self, data: list[list[float]] | None = None) -> None:
+        if data is None:
+            self.data = []
+        else:
+            self.data = data
+
+    def get_neighbors(self, vertex: int) -> list[int]:
         neighbors = []
         for i in range(len(self.data[vertex])):
             if self.data[vertex][i] != 0:
                 neighbors.append(i)
         return neighbors
 
-    def get_degree(self, vertex):
+    def get_degree(self, vertex: int) -> tuple[int, int]:
         out_degree = 0
         in_degree = 0
         vertices_count = len(self.data)
@@ -26,13 +33,13 @@ class Graph:
                 in_degree += 1
         return (out_degree, in_degree)
 
-    def add_edge(self, start, end, weight=1):
+    def add_edge(self, start: int, end: int, weight: float = 1) -> None:
         self.data[start][end] = weight
 
-    def remove_edge(self, start, end):
+    def remove_edge(self, start: int, end: int) -> None:
         self.data[start][end] = 0
 
-    def count_edges(self):
+    def count_edges(self) -> int:
         count = 0
         for i in range(len(self.data)):
             for j in range(len(self.data)):
@@ -40,7 +47,7 @@ class Graph:
                     count += 1
         return count
 
-    def is_complete(self):
+    def is_complete(self) -> bool:
         vertices_count = len(self.data)
         for i in range(vertices_count):
             for j in range(vertices_count):
@@ -49,8 +56,7 @@ class Graph:
                         return False
         return True
 
-    def find_shortest_path_CPX(self, start, end):
-        vertices_count = len(self.data)
+    def find_shortest_path_CPX(self, start: int, end: int) -> list[int] | None:
         if start == end:
             return [start]
         adj_matrix = Matrix(copy.deepcopy(self.data))
@@ -66,13 +72,13 @@ class Graph:
 
         if not found:
             return None
-        return ["Path exists (Computed via Matrix Power)"]
+        return ["Path exists (Computed via Matrix Power)"]  # type: ignore[return-value]
 
-    def find_shortest_path_BFS(self, start, end):
+    def find_shortest_path_BFS(self, start: int, end: int) -> list[int] | None:
         vertices_count = len(self.data)
         queue = [start]
         mat = self.data
-        memory = {start: None}
+        memory: dict[int, int | None] = {start: None}
         found = False
         idx = 0
         while idx < len(queue):
@@ -99,11 +105,11 @@ class Graph:
             index = memory[index]
         return path[::-1]
 
-    def find_path_DFS(self, start, end):
+    def find_path_DFS(self, start: int, end: int) -> list[int] | None:
         vertices_count = len(self.data)
         stack = [start]
         mat = self.data
-        memory = {start: None}
+        memory: dict[int, int | None] = {start: None}
         found = False
         while len(stack) > 0:
             curr = stack.pop()
@@ -123,12 +129,14 @@ class Graph:
             curr_node = memory[curr_node]
         return path[::-1]
 
-    def find_shortest_path_weight(self, start, end):
+    def find_shortest_path_weight(
+        self, start: int, end: int
+    ) -> tuple[list[int], float] | tuple[None, float]:
         vertices_count = len(self.data)
-        distances = {i: float("inf") for i in range(vertices_count)}
+        distances: dict[int, float] = {i: float("inf") for i in range(vertices_count)}
         distances[start] = 0
         visited = [False] * vertices_count
-        parent = {start: None}
+        parent: dict[int, int | None] = {start: None}
         for _ in range(vertices_count):
             min_dist = float("inf")
             curr = -1
@@ -157,11 +165,13 @@ class Graph:
             curr_node = parent[curr_node]
         return path[::-1], distances[end]
 
-    def minimum_spanning_tree_prim(self, weights):
+    def minimum_spanning_tree_prim(
+        self, weights: list[list[float]]
+    ) -> tuple[list[list[float]], float]:
         n = len(weights)
         INF = float("inf")
         key = [INF] * n
-        parent = [None] * n
+        parent: list[int | None] = [None] * n
         mst_set = [False] * n
         key[0] = 0
         parent[0] = -1
@@ -180,18 +190,19 @@ class Graph:
                 if w > 0 and not mst_set[v] and w < key[v]:
                     key[v] = w
                     parent[v] = u
-        mst_matrix = [[0] * n for _ in range(n)]
-        total_weight = 0
+        mst_matrix: list[list[float]] = [[0.0] * n for _ in range(n)]
+        total_weight = 0.0
         for i in range(1, n):
-            if parent[i] is not None:
-                u, v = parent[i], i
+            p = parent[i]
+            if p is not None:
+                u, v = p, i
                 weight = weights[u][v]
                 mst_matrix[u][v] = weight
                 mst_matrix[v][u] = weight
                 total_weight += weight
         return mst_matrix, total_weight
 
-    def connectness(self):
+    def connectness(self) -> bool:
         start_node = 0
         q = [start_node]
         visited = {start_node}
@@ -203,7 +214,7 @@ class Graph:
                     q.append(v)
         return len(visited) == len(self.data)
 
-    def connect_components(self):
+    def connect_components(self) -> list[list[int]]:
         mat = self.data
         vertices_count = len(mat)
         visited = [False] * vertices_count
@@ -223,10 +234,10 @@ class Graph:
                 res.append(component)
         return res
 
-    def is_bipartite_BFS(self):
+    def is_bipartite_BFS(self) -> bool:
         mat = self.data
         vertices_count = len(mat)
-        color = {}
+        color: dict[int, int] = {}
         for start in range(vertices_count):
             if start not in color:
                 color[start] = 0
