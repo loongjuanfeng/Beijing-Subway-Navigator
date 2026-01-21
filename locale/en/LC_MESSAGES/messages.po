@@ -1,13 +1,14 @@
 # English translations for Beijing Subway Navigator.
 # Copyright (C) 2026 Beijing Subway Navigator
-# This file is distributed under the same license as the Beijing Subway Navigator project.
+# This file is distributed under the same license as the Beijing Subway
+# Navigator project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Beijing Subway Navigator 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-20 16:11+0800\n"
+"POT-Creation-Date: 2026-01-21 10:52+0800\n"
 "PO-Revision-Date: 2026-01-20 16:11+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,35 +19,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: subway_navigation.py:121
+#: subway_navigation.py:131
 msgid "Initializing Beijing Subway Network Data..."
 msgstr "Initializing Beijing Subway Network Data..."
 
-#: subway_navigation.py:142
+#: subway_navigation.py:182
 #, python-brace-format
 msgid "Error: Could not find data file - {e}"
 msgstr "Error: Could not find data file - {e}"
 
-#: subway_navigation.py:145
+#: subway_navigation.py:185
 #, python-brace-format
 msgid "Error: Invalid JSON format in data file - {e}"
 msgstr "Error: Invalid JSON format in data file - {e}"
 
-#: subway_navigation.py:148
+#: subway_navigation.py:188
 #, python-brace-format
 msgid "Error: Unexpected error loading subway data - {e}"
 msgstr "Error: Unexpected error loading subway data - {e}"
 
-#: subway_navigation.py:164
+#: subway_navigation.py:214
 #, python-brace-format
 msgid "Initialization Complete! Loaded {n} stations and {edges} track segments."
 msgstr "Initialization Complete! Loaded {n} stations and {edges} track segments."
 
-#: subway_navigation.py:176
+#: subway_navigation.py:272
 msgid "No path found."
 msgstr "No path found."
 
-#: subway_navigation.py:187
+#: subway_navigation.py:283
 #, python-brace-format
 msgid ""
 "This route involves stations known for difficult, long, or crowded "
@@ -55,103 +56,109 @@ msgstr ""
 "This route involves stations known for difficult, long, or crowded "
 "transfers: {stations}"
 
-#: subway_navigation.py:190
+#: subway_navigation.py:286
 msgid "Please prepare for long walks or stairs."
 msgstr "Please prepare for long walks or stairs."
 
-#: subway_navigation.py:191
+#: subway_navigation.py:287
 msgid "This route may not be best route in real life."
 msgstr "This route may not be best route in real life."
 
-#: subway_navigation.py:201
+#: subway_navigation.py:297
 msgid "Beijing Subway Graph Navigation System"
 msgstr "Beijing Subway Graph Navigation System"
 
-#: subway_navigation.py:203
+#: subway_navigation.py:299
 msgid "Fastest Route (Time Weighted)"
 msgstr "Fastest Route (Time Weighted)"
 
-#: subway_navigation.py:204
+#: subway_navigation.py:300
 msgid "Least Stops Route"
 msgstr "Least Stops Route"
 
-#: subway_navigation.py:205
+#: subway_navigation.py:301
 msgid "Random Exploration Path"
 msgstr "Random Exploration Path"
 
-#: subway_navigation.py:206
+#: subway_navigation.py:302
 msgid "Calculate MST Cost (Total Network Length)"
 msgstr "Calculate MST Cost (Total Network Length)"
 
-#: subway_navigation.py:207
+#: subway_navigation.py:303
 msgid "Station Hub Analysis"
 msgstr "Station Hub Analysis"
 
-#: subway_navigation.py:208
+#: subway_navigation.py:304
 msgid "Algebraic Connectivity Path (CPX Experiment)"
 msgstr "Algebraic Connectivity Path (CPX Experiment)"
 
-#: subway_navigation.py:209
+#: subway_navigation.py:305
 msgid "Check Network Connectivity"
 msgstr "Check Network Connectivity"
 
-#: subway_navigation.py:210
+#: subway_navigation.py:306
 msgid "Simulate Line Disruption (Remove Edge)"
 msgstr "Simulate Line Disruption (Remove Edge)"
 
-#: subway_navigation.py:211
+#: subway_navigation.py:307
+msgid "Fastest Route with Heuristic (Time Weighted)"
+msgstr "Fastest Route with Heuristic (Time Weighted)"
+
+#: subway_navigation.py:308
 msgid "Exit"
 msgstr "Exit"
 
-#: subway_navigation.py:214
+#: subway_navigation.py:311
 msgid "Enter option number: "
 msgstr "Enter option number: "
 
-#: subway_navigation.py:221
+#: subway_navigation.py:318 subway_navigation.py:432
 #, python-brace-format
 msgid "Enter start station (e.g., {example}): "
 msgstr "Enter start station (e.g., {example}): "
 
-#: subway_navigation.py:221
+#: subway_navigation.py:318 subway_navigation.py:432
 msgid "西直门"
 msgstr "西直门"
 
-#: subway_navigation.py:224
+#: subway_navigation.py:321 subway_navigation.py:435
 #, python-brace-format
 msgid "Enter end station (e.g., {example}): "
 msgstr "Enter end station (e.g., {example}): "
 
-#: subway_navigation.py:224
+#: subway_navigation.py:321 subway_navigation.py:435
 msgid "国贸"
 msgstr "国贸"
 
-#: subway_navigation.py:231
+#: subway_navigation.py:328 subway_navigation.py:442
 msgid "Error: Station name does not exist. Please check your input."
 msgstr "Error: Station name does not exist. Please check your input."
 
-#: subway_navigation.py:236
+#: subway_navigation.py:334
 #, python-brace-format
 msgid ""
 "\n"
-"Calculating fastest route from {start} to {end} (Dijkstra)..."
+"Calculating fastest route from {start} to {end} (Dijkstra with transfer "
+"times)..."
 msgstr ""
 "\n"
-"Calculating fastest route from {start} to {end} (Dijkstra)..."
+"Calculating fastest route from {start} to {end} (Dijkstra with transfer "
+"times)..."
 
-#: subway_navigation.py:242
+#: subway_navigation.py:346 subway_navigation.py:464
 #, python-brace-format
 msgid "Estimated Time: {time} minutes"
 msgstr "Estimated Time: {time} minutes"
 
-#: subway_navigation.py:243
+#: subway_navigation.py:347 subway_navigation.py:465
 msgid "Route:"
 msgstr "Route:"
 
-#: subway_navigation.py:246
+#: subway_navigation.py:350 subway_navigation.py:468
 msgid "Destination unreachable."
 msgstr "Destination unreachable."
 
-#: subway_navigation.py:251
+#: subway_navigation.py:355
 #, python-brace-format
 msgid ""
 "\n"
@@ -160,12 +167,12 @@ msgstr ""
 "\n"
 "Calculating route with fewest stops from {start} to {end} (BFS)..."
 
-#: subway_navigation.py:256
+#: subway_navigation.py:360
 #, python-brace-format
 msgid "Total Stops: {count} stations"
 msgstr "Total Stops: {count} stations"
 
-#: subway_navigation.py:260
+#: subway_navigation.py:364
 msgid ""
 "\n"
 "Searching for a feasible path (DFS)..."
@@ -173,7 +180,7 @@ msgstr ""
 "\n"
 "Searching for a feasible path (DFS)..."
 
-#: subway_navigation.py:265
+#: subway_navigation.py:369
 msgid ""
 "\n"
 "[Experimental] Computing path via Matrix Multiplication (CPX)..."
@@ -181,12 +188,11 @@ msgstr ""
 "\n"
 "[Experimental] Computing path via Matrix Multiplication (CPX)..."
 
-#: subway_navigation.py:267
-#, python-brace-format
-msgid "CPX Result: {result}"
-msgstr "CPX Result: {result}"
+#: subway_navigation.py:374
+msgid "CPX Result: No path found"
+msgstr "CPX Result: No path found"
 
-#: subway_navigation.py:270
+#: subway_navigation.py:377
 msgid ""
 "\n"
 "Calculating Minimum Spanning Tree (Prim's Algorithm)..."
@@ -194,16 +200,16 @@ msgstr ""
 "\n"
 "Calculating Minimum Spanning Tree (Prim's Algorithm)..."
 
-#: subway_navigation.py:273
+#: subway_navigation.py:380
 #, python-brace-format
 msgid "Minimum weighted length to connect all {n} stations: {cost}"
 msgstr "Minimum weighted length to connect all {n} stations: {cost}"
 
-#: subway_navigation.py:279
+#: subway_navigation.py:386
 msgid "Enter station name to query: "
 msgstr "Enter station name to query: "
 
-#: subway_navigation.py:285
+#: subway_navigation.py:392
 #, python-brace-format
 msgid ""
 "\n"
@@ -212,25 +218,25 @@ msgstr ""
 "\n"
 "Analysis for {station}:"
 
-#: subway_navigation.py:286
+#: subway_navigation.py:393
 #, python-brace-format
 msgid "- Connectivity Degree: {degree}"
 msgstr "- Connectivity Degree: {degree}"
 
-#: subway_navigation.py:288
+#: subway_navigation.py:395
 #, python-brace-format
 msgid "- Neighboring Stations: {stations}"
 msgstr "- Neighboring Stations: {stations}"
 
-#: subway_navigation.py:291
+#: subway_navigation.py:398
 msgid "- Verdict: This is a Transfer Hub."
 msgstr "- Verdict: This is a Transfer Hub."
 
-#: subway_navigation.py:293
+#: subway_navigation.py:400
 msgid "- Verdict: Regular Stop."
 msgstr "- Verdict: Regular Stop."
 
-#: subway_navigation.py:296
+#: subway_navigation.py:403
 msgid ""
 "\n"
 "Analyzing network structure..."
@@ -238,21 +244,21 @@ msgstr ""
 "\n"
 "Analyzing network structure..."
 
-#: subway_navigation.py:300
+#: subway_navigation.py:407
 #, python-brace-format
 msgid "Is network fully connected: {is_connected}"
 msgstr "Is network fully connected: {is_connected}"
 
-#: subway_navigation.py:304
+#: subway_navigation.py:411
 #, python-brace-format
 msgid "Number of Connected Components: {count}"
 msgstr "Number of Connected Components: {count}"
 
-#: subway_navigation.py:306
+#: subway_navigation.py:413
 msgid "Warning: Isolated station groups detected!"
 msgstr "Warning: Isolated station groups detected!"
 
-#: subway_navigation.py:308
+#: subway_navigation.py:415
 msgid ""
 "\n"
 "Checking Bipartite Property (BFS)..."
@@ -260,12 +266,12 @@ msgstr ""
 "\n"
 "Checking Bipartite Property (BFS)..."
 
-#: subway_navigation.py:310
+#: subway_navigation.py:417
 #, python-brace-format
 msgid "Is Bipartite Graph: {is_bipartite}"
 msgstr "Is Bipartite Graph: {is_bipartite}"
 
-#: subway_navigation.py:313
+#: subway_navigation.py:420
 msgid ""
 "\n"
 "Simulating Construction/Failure Mode..."
@@ -273,23 +279,40 @@ msgstr ""
 "\n"
 "Simulating Construction/Failure Mode..."
 
-#: subway_navigation.py:314
+#: subway_navigation.py:421
 msgid "Enter disruption start station: "
 msgstr "Enter disruption start station: "
 
-#: subway_navigation.py:315
+#: subway_navigation.py:422
 msgid "Enter disruption end station: "
 msgstr "Enter disruption end station: "
 
-#: subway_navigation.py:318
+#: subway_navigation.py:425
 #, python-brace-format
 msgid "Cutting connection between {u} <-> {v}..."
 msgstr "Cutting connection between {u} <-> {v}..."
 
-#: subway_navigation.py:321
+#: subway_navigation.py:428
 msgid "Line segment disrupted. Please replan route to see effects."
 msgstr "Line segment disrupted. Please replan route to see effects."
 
-#: subway_navigation.py:324
+#: subway_navigation.py:446
+msgid "Precomputing A* heuristic table..."
+msgstr "Precomputing A* heuristic table..."
+
+#: subway_navigation.py:451
+#, python-brace-format
+msgid ""
+"\n"
+"Calculating fastest route from {start} to {end} (A* with heuristic)..."
+msgstr ""
+"\n"
+"Calculating fastest route from {start} to {end} (A* with heuristic)..."
+
+#: subway_navigation.py:471
 msgid "Invalid input."
 msgstr "Invalid input."
+
+#~ msgid "CPX Result: {result}"
+#~ msgstr "CPX Result: {result}"
+
